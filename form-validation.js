@@ -3,14 +3,18 @@ function validate(){
   var userEntered = document.getElementById("user").value;
   var passEntered = document.getElementById("pass").value;
   var userLength = userEntered.length;
-  console.log("Username length is " +   userLength);
+  var nope = "password"
+
+  console.log("Username length is " +  userLength);
+  console.log("Password is " + passEntered);
 
   if(userLength>=6)
   {
-    document.getElementById("usernameError").innerHTML="Good username.";
+    document.getElementById("usernameError").innerHTML="";
     document.getElementById("usernameError").classList.remove("hidden-message");
     document.getElementById("usernameError").classList.add("shown-message");
     //turns elements green
+    document.getElementById("usernameGroup").classList.remove("has-error");
     document.getElementById("usernameGroup").classList.add("has-success");
   }
   else {
@@ -22,7 +26,7 @@ function validate(){
     document.getElementById("usernameGroup").classList.add("has-error");
   }
 
-  if(passEntered == "password")
+  if(passEntered == nope)
   {
     document.getElementById("passwordError").innerHTML="Bad password.";
     document.getElementById("passwordError").classList.remove("hidden-message");
@@ -30,12 +34,13 @@ function validate(){
     //Turn the password items red
     document.getElementById("passwordGroup").classList.add("has-error");
   }
-  else {
-    document.getElementById("passwordError").innerHTML="Good password.";
+  else
+  {
+    document.getElementById("passwordError").innerHTML="";
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     //turns elements green
+    document.getElementById("passwordGroup").classList.remove("has-error");
     document.getElementById("passwordGroup").classList.add("has-success");
-
   }
 }
